@@ -1,0 +1,27 @@
+# Dockerized Config And Eureka Server Compose
+# Author: jackie-1685@163.com
+# 
+
+version: "3"
+services:
+  backup-config-server:
+    image: mengluo668/config-server:0.0.1-SNAPSHOT
+    restart: always
+    ports:
+      - 8888:8888
+    volumes:
+      - "/tmp/backup-config-server:/tmp"
+      - "/var/configuration/config-server/backup:/config-server/config"
+  backup-eureka-server:
+    image: mengluo668/eureka-server:0.0.1-SNAPSHOT
+    restart: always
+    ports:
+      - 8761:8761
+    volumes:
+      - "/tmp/backup-eureka-server:/tmp"
+    environment:
+      - DEFAULT_EUREKA_SERVER_SPRING_PROFILES_ACTIVE=backup
+      - DEFAULT_EUREKA_SERVER_SPRING_CLOUD_CONFIG_ENABLED=true
+      - DEFAULT_EUREKA_SERVER_SPRING_CLOUD_CONFIG_URI=http://35.185.151.81:8888/config-server
+    depends_on:
+      - backup-config-server
