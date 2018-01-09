@@ -22,6 +22,6 @@ services:
     environment:
       - DEFAULT_EUREKA_SERVER_SPRING_PROFILES_ACTIVE=backup
       - DEFAULT_EUREKA_SERVER_SPRING_CLOUD_CONFIG_ENABLED=true
-      - DEFAULT_EUREKA_SERVER_SPRING_CLOUD_CONFIG_URI=http://35.185.151.81:8888/config-server
+      - DEFAULT_EUREKA_SERVER_SPRING_CLOUD_CONFIG_URI=http://backup-config-server:8888/config-server
     depends_on:
       - backup-config-server

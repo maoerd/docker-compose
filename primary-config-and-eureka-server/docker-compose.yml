@@ -22,6 +22,6 @@ services:
     environment:
       - DEFAULT_EUREKA_SERVER_SPRING_PROFILES_ACTIVE=primary
       - DEFAULT_EUREKA_SERVER_SPRING_CLOUD_CONFIG_ENABLED=true
-      - DEFAULT_EUREKA_SERVER_SPRING_CLOUD_CONFIG_URI=http://35.185.131.60:8888/config-server
+      - DEFAULT_EUREKA_SERVER_SPRING_CLOUD_CONFIG_URI=http://primary-config-server:8888/config-server
     depends_on:
       - primary-config-server
