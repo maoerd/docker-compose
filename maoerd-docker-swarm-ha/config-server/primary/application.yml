@@ -19,4 +19,4 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://maoerd-docker-eureka-server-primary.c.sunlit-utility-190612.internal/eureka/
+      defaultZone: http://eureka-server-primary/eureka/
