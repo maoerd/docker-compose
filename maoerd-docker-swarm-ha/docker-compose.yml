@@ -22,10 +22,11 @@ services:
       - "./config-server/primary:/config-server/config"
     deploy:
       replicas: 1
+      restart_policy:
+          condition: on-failure
       placement:
         constraints: [node.hostname == maoerd-docker-config-server-primary]
-        restart_policy:
-          condition: on-failure
+
   # config-server-primary:
   #   image: mengluo668/config-server:0.0.1-SNAPSHOT
   #   restart: always
