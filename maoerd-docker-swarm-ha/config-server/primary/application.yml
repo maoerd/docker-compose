@@ -1,0 +1,22 @@
+server:
+  port: 80
+  
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/maoerd/configuration
+          cloneOnStart: true
+          force-pull: true
+          searchPaths: '{application}'
+
+eureka:
+  client:
+    enabled: true
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://maoerd-docker-eureka-server-primary.c.sunlit-utility-190612.internal/eureka/
