@@ -17,11 +17,16 @@ services:
     image: mengluo668/config-server:0.0.1-SNAPSHOT
     volumes:
       - "/tmp/config-server-primary:/tmp"
-      - "./config-server/primary:/config-server/config"
+    configs:
+      - source: primary-config-server-config
+        target: /config-server/config
     deploy:
       replicas: 1
       restart_policy:
           condition: on-failure
+  configs:
+    primary-config-server-config:
+      file: ./config-server/primary
 
   # config-server-primary:
   #   image: mengluo668/config-server:0.0.1-SNAPSHOT
