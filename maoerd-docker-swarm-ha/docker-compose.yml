@@ -2,7 +2,7 @@
 # Author: Wenbo Wang <jackie-1685@163.com>
 # Version: 1.0
 
-version: "3"
+version: "3.4"
 services:
   visualizer:
     image: dockersamples/visualizer:stable
